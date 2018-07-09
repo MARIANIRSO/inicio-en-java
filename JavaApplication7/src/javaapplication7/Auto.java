@@ -7,12 +7,14 @@ public class Auto {
     private String modelo;
     private int puertas;
     private boolean aireAcondicionado;
+    private int velocidad;
 
-    public Auto(String marca, String modelo, int puertas, boolean aireAcondicionado) {
+    public Auto(String marca, String modelo, int puertas, boolean aireAcondicionado, int velocidad) {
         this.marca = marca;
         this.modelo = modelo;
         this.puertas = puertas;
         this.aireAcondicionado = aireAcondicionado;
+        this.velocidad= velocidad;
     }
 
     
@@ -21,13 +23,6 @@ public class Auto {
    }
     public void setMarca(String marca){
         this.marca= marca;       
-    }
-    
-    
-    
-    @Override
-    public String toString() {
-        return "Auto{" + "marca=" + marca + ", modelo=" + modelo + ", puertas=" + puertas + ", aireAcondicionado=" + aireAcondicionado + '}';
     }
 
     public String getModelo() {
@@ -53,9 +48,45 @@ public class Auto {
     public void setAireAcondicionado(boolean aireAcondicionado) {
         this.aireAcondicionado = aireAcondicionado;
     }
+
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(int velocidad) {
+        this.velocidad = velocidad;
+    }
+
+    @Override
+    public String toString() {
+        return "Auto{" + "marca=" + marca + ", modelo=" + modelo + ", puertas=" + puertas + ", aireAcondicionado=" + aireAcondicionado + ", velocidad=" + velocidad + '}';
+    }
  
     
+    /*
+    public void acelerar(){
+        
+        acelerar(10);
+    }
+*/
+    public void acelerar(int km) {
+        velocidad=velocidad+km; 
+        
+        if(velocidad>100){
+            System.out.println("no podes acelerar mas. Te bajo la velocidad");
+            velocidad= 15;            
+        }            
+    }
     
+    
+    public void frenar(int km) {
+        velocidad=velocidad-km; 
+        
+        if(velocidad<0){
+            System.out.println("no podes frenar mas");
+            velocidad= 0;            
+        }            
+    }
     
     
     
